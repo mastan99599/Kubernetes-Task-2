@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shaik-dep
+  namespace: ingress-nginx
+  labels:
+    app: dj
+spec:
+  selector:
+    matchLabels:
+      app: dj
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: dj
+    spec:
+      containers:
+      - name: dj
+        image: masthan9/dj-demo:shaiklatest
+        ports:
+        - containerPort: 8000
+     
